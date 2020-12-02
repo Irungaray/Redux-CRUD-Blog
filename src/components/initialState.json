@@ -1,0 +1,14 @@
+{
+  "users": [
+      {
+        "name": "Capo",
+        "mail": "Capo@delagranputa.com",
+        "link": "capo.com"
+      },
+      {
+        "name": "superCapo",
+        "mail": "superCapo@delagranputa.com",
+        "link": "superCapo.com"
+      }
+  ]
+}

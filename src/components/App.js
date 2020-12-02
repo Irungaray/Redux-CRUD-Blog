@@ -1,22 +1,10 @@
 import React, { Component } from "react";
+import initialState from "./initialState.json"
 
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      users: [
-        {
-          name: 'Capo',
-          mail: 'Capo@delagranputa.com',
-          link: 'capo.com'
-        },
-        {
-          name: 'superCapo',
-          mail: 'superCapo@delagranputa.com',
-          link: 'superCapo.com'
-        }
-      ]
-    }
+    this.state = initialState;
   }
 
   addRows = () => (
