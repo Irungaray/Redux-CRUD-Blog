@@ -17,20 +17,29 @@ class App extends Component {
         </td>
 
         <td>
-          { user.mail }
+          { user.email }
         </td>
 
         <td>
-          { user.link }
+          { user.website }
         </td>
       </tr>
     ))
   );
 
-  componentDidMount() {
-    const response = axios.get('https://jsonplaceholder.typicode.com/users');
-    console.log(response)
-    this.setState(initialState)
+  async componentDidMount() {
+    try {
+      let userList = await axios({
+        url: 'https://jsonplaceholder.typicode.com/users',
+        method: 'GET'
+      });
+      this.setState({
+        users: userList.data
+      })
+    } catch (err) {
+      console.log(err);
+      this.setState(initialState)
+    }
   }
 
   render() {
