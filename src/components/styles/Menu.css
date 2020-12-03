@@ -1,0 +1,50 @@
+#menu {
+  background-color: #253a46;
+  font-size: 25px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+#menu a {
+  color: white;
+  padding-right: 50px;
+}
+
+body {
+  margin: 0;
+}
+
+.buttons {
+  max-width: 720px;
+}
+
+button {
+  box-shadow: 3px 4px 0px 0px #1564ad;
+  background: linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+  background-color: #79bbff;
+  border-radius: 5px;
+  border: 1px solid #337bc4;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 12px 44px;
+  margin: 15px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #528ecc;
+}
+
+button:hover {
+  background: linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+  background-color: #378de5;
+}
+
+button:active {
+  position: relative;
+  top: 1px;
+}
