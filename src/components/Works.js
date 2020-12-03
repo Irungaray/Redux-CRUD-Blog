@@ -1,5 +1,5 @@
-import React from 'react'
+import React from "react";
 
-const Works = () => <div>Tareas</div>
+const Works = () => <div>Tareas</div>;
 
 export default Works;

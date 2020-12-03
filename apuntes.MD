@@ -6,3 +6,12 @@ Si empiezan con const son stateless o componentes funcionales.
 Los componentes de clase se declaran como
 class App extends Component {}
 y en lugar de return () va render()
+
+Redux es un contenedor predecible del estado de aplicaciones JavaScript. Te ayuda a escribir aplicaciones que se comportan de manera consistente, corren en distintos ambientes (cliente, servidor y nativo), y son fáciles de probar.
+
+Los cuatro pilares de Redux son:
+
+Store: Almacenamiento
+Reducers: Estados
+Action Creators: Funciones
+Componente: Código JSX

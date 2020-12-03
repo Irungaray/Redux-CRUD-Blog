@@ -1,14 +1,14 @@
 {
   "users": [
-      {
-        "name": "Capo",
-        "email": "Capo@delagranputa.com",
-        "website": "capo.com"
-      },
-      {
-        "name": "superCapo",
-        "email": "superCapo@delagranputa.com",
-        "website": "superCapo.com"
-      }
+    {
+      "name": "Capo",
+      "email": "Capo@delagranputa.com",
+      "website": "capo.com"
+    },
+    {
+      "name": "superCapo",
+      "email": "superCapo@delagranputa.com",
+      "website": "superCapo.com"
+    }
   ]
 }
