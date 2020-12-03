@@ -3,7 +3,7 @@ import axios from "axios";
 
 import "./styles/Users.css";
 
-import initialState from "../initialState.json";
+import dummyState from "../dummyState.json";
 
 class Users extends Component {
   constructor() {
@@ -33,7 +33,7 @@ class Users extends Component {
       });
     } catch (err) {
       console.log(err);
-      this.setState(initialState);
+      this.setState(dummyState);
     }
   }
 

@@ -1,5 +1,7 @@
 import React from "react";
 
-const Works = () => <div>Tareas</div>;
+import './styles/Users.css';
+
+const Works = () => <div className="margin">Tareas</div>;
 
 export default Works;
