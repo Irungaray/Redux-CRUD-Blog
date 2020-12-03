@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import axios from 'axios';
+
 import initialState from "./initialState.json"
 
 class App extends Component {
   constructor() {
     super();
-    this.state = initialState;
+    this.state = {users: []};
   }
 
   addRows = () => (
@@ -24,6 +26,12 @@ class App extends Component {
       </tr>
     ))
   );
+
+  componentDidMount() {
+    const response = axios.get('https://jsonplaceholder.typicode.com/users');
+    console.log(response)
+    this.setState(initialState)
+  }
 
   render() {
     return (
