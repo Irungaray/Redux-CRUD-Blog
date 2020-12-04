@@ -4,6 +4,10 @@ import { connect } from "react-redux";
 import * as usersActions from "../../src/actions/usersActions";
 
 import "./styles/Users.css";
+
+import Loader from "./Loader";
+import NotFound from "./NotFound";
+
 class Users extends Component {
   addRows = () =>
     this.props.users.map((user) => (
@@ -20,24 +24,39 @@ class Users extends Component {
     this.props.getAll();
   }
 
+  printContent = () => {
+    let isLoading = this.props.loading;
+    let isError = this.props.error;
+
+    if(isLoading) {
+      return <Loader />
+    }
+
+    if(isError) {
+      return <NotFound msg={ isError } />
+    }
+
+    return (
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+
+            <th>Correo</th>
+
+            <th>Enlace</th>
+          </tr>
+        </thead>
+
+        <tbody>{ this.addRows() }</tbody>
+      </table>
+    );
+  };
+
   render() {
-    console.log(this.props.loading)
-    console.log(this.props.error)
     return (
       <div className="margin">
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-
-              <th>Correo</th>
-
-              <th>Enlace</th>
-            </tr>
-          </thead>
-
-          <tbody>{this.addRows()}</tbody>
-        </table>
+        { this.printContent() }
       </div>
     );
   }
