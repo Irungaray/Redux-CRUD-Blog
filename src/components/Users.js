@@ -7,19 +7,9 @@ import "./styles/Users.css";
 
 import Loader from "./Loader";
 import NotFound from "./NotFound";
+import UsersTable from "./UsersTable";
 
 class Users extends Component {
-  addRows = () =>
-    this.props.users.map((user) => (
-      <tr key={user.id}>
-        <td>{user.name}</td>
-
-        <td>{user.email}</td>
-
-        <td>{user.website}</td>
-      </tr>
-    ));
-
   componentDidMount() {
     this.props.getAll();
   }
@@ -33,29 +23,18 @@ class Users extends Component {
     }
 
     if(isError) {
-      return <NotFound msg={ isError } />
+      return <NotFound />
     }
 
     return (
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-
-            <th>Correo</th>
-
-            <th>Enlace</th>
-          </tr>
-        </thead>
-
-        <tbody>{ this.addRows() }</tbody>
-      </table>
+      <UsersTable />
     );
   };
 
   render() {
     return (
       <div className="margin">
+        <h1>Users</h1>
         { this.printContent() }
       </div>
     );

@@ -1,16 +1,21 @@
 import React from 'react';
+import { connect } from "react-redux";
 
 const NotFound = (props) => {
     return (
         <div>
             <h1>
-                Hubo un error de la gran concha de la madre
+                Hubo un error de la gran concha de la madre:
             </h1>
             <h2>
-                { props.msg }
+                { props.error }
             </h2>
         </div>
     )
 }
 
-export default NotFound;
+const mapStateToProps = (reducers) => {
+    return reducers.usersReducer;
+};
+
+export default connect(mapStateToProps)(NotFound);
