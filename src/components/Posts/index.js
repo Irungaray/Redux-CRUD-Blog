@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import * as usersActions from "../../actions/usersActions";
@@ -8,32 +8,30 @@ const { getAll: getAllUsers } = usersActions;
 const { getAll: getAllPosts } = postsActions;
 
 class Posts extends Component {
-    componentDidMount() {
-        if (!this.props.usersReducer.users.length) {
-            this.props.getAllUsers()
-            this.props.getAllPosts()
-        }
+  componentDidMount() {
+    if (!this.props.usersReducer.users.length) {
+      this.props.getAllUsers();
+      this.props.getAllPosts();
     }
+  }
 
-    render() {
-        console.log(this.props)
+  render() {
+    console.log(this.props);
 
-        return (
-            <h1>asd</h1>
-        )
-    }
+    return <h1>asd</h1>;
+  }
 }
 
-const mapStateToProps = ({ usersReducer, postsReducer}) => {
-    return {
-        usersReducer,
-        postsReducer
-    }
+const mapStateToProps = ({ usersReducer, postsReducer }) => {
+  return {
+    usersReducer,
+    postsReducer,
+  };
 };
 
 const mapDispatchToProps = {
-    getAllUsers,
-    getAllPosts
+  getAllUsers,
+  getAllPosts,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Posts);

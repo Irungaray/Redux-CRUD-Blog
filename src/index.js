@@ -8,7 +8,7 @@ import reduxThunk from "redux-thunk";
 import reducers from "./reducers";
 import App from "./components/App";
 
-import "./components/styles/icons.css"
+import "./components/styles/icons.css";
 
 const store = createStore(
   reducers, // Primer parametro: todos los reducers

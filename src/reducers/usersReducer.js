@@ -1,11 +1,11 @@
-import { GET_USERS } from '../types/usersTypes'
-import { LOADING } from '../types/usersTypes'
-import { ERROR } from '../types/usersTypes'
+import { GET_USERS } from "../types/usersTypes";
+import { LOADING } from "../types/usersTypes";
+import { ERROR } from "../types/usersTypes";
 
 const INITIAL_STATE = {
   users: [],
   loading: false,
-  error: ''
+  error: "",
 };
 
 const reducer = (state = INITIAL_STATE, action) => {

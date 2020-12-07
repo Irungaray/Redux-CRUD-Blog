@@ -18,24 +18,22 @@ class Users extends Component {
     let isLoading = this.props.loading;
     let isError = this.props.error;
 
-    if(isLoading) {
-      return <Loader />
+    if (isLoading) {
+      return <Loader />;
     }
 
-    if(isError) {
-      return <NotFound />
+    if (isError) {
+      return <NotFound />;
     }
 
-    return (
-      <UsersTable />
-    );
+    return <UsersTable />;
   };
 
   render() {
     return (
       <div className="margin">
         <h1>Users</h1>
-        { this.printContent() }
+        {this.printContent()}
       </div>
     );
   }
