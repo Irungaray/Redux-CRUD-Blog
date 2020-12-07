@@ -5,6 +5,7 @@ import Menu from "./Menu";
 import Layout from "./Layout";
 import Users from "./Users";
 import Works from "./Works";
+import Posts from "./Posts";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Layout>
             <Route exact path="/Users" component={Users} />
             <Route exact path="/Works" component={Works} />
+            <Route exact path="/Posts/:key" component={Posts} />
           </Layout>
       </Switch>
     </BrowserRouter>

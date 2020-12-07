@@ -1,15 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+
+import "./styles/icons.css"
 
 const UsersTable = (props) => {
     const addRows = () => (
-        props.users.map((user) => (
+        props.users.map((user, key) => (
             <tr key={user.id}>
                 <td>{user.name}</td>
 
                 <td>{user.email}</td>
 
                 <td>{user.website}</td>
+
+                <td>
+                    <Link to={ `/Posts/${key}`}>
+                        <div className="search icon"></div>
+                    </Link>
+                </td>
             </tr>
         ))
     );

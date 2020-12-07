@@ -16,6 +16,11 @@ export const getAll = () => async (dispatch) => {
       url: "https://jsonplaceholder.typicode.com/users",
       method: "GET",
     });
+
+    dispatch({
+      type: GET_USERS,
+      payload: userList.data,
+    });
   } catch (err) {
     console.log('Error:', err.message)
     dispatch({
@@ -23,9 +28,4 @@ export const getAll = () => async (dispatch) => {
       payload: err.message
     })
   }
-
-  dispatch({
-    type: GET_USERS,
-    payload: userList.data,
-  });
 };
