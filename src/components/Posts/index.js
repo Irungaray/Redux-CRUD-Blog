@@ -22,6 +22,7 @@ class Posts extends Component {
         <div>
             <h1>Publicaciones de</h1>
             <h2>{ this.props.match.params.key }</h2>
+            <h2>a ver</h2>
         </div>
     )
   }

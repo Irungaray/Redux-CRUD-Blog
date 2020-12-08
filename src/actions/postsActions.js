@@ -38,26 +38,36 @@ export const getAll = () => async (dispatch) => {
 
 export const getByUser = (key) => async (dispatch, getState) => {
   const { users } = getState().usersReducer;
+  const { userPosts } = getState().postsReducer;
   const user_id = users[key].id;
+  console.log(userPosts)
 
-  let userPosts;
+  let fetchUserPosts;
 
   dispatch({
     type: LOADING,
   });
 
   try {
-    userPosts = await axios({
+    fetchUserPosts = await axios({
       url: `http://jsonplaceholder.typicode.com/posts?userId=${user_id}`,
       method: "GET",
     })
 
+    const actualPosts = [
+      ...userPosts,
+      fetchUserPosts.data,
+
+    ];
+
     dispatch({
       type: GET_USER_POSTS,
-      payload: userPosts.data,
+      payload: actualPosts,
     });
   } catch (err) {
-    console.log("Error:", err.message);
+    console.log("Error aca:", err.message);
+    console.log(userPosts)
+
 
     dispatch({
       type: ERROR,
