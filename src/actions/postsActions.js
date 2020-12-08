@@ -5,6 +5,9 @@ import { GET_USER_POSTS } from "../types/postsTypes";
 import { LOADING } from "../types/postsTypes";
 import { ERROR } from "../types/postsTypes";
 
+import * as usersTypes from '../types/usersTypes';
+const { GET_USERS: GET_ALL_USERS } = usersTypes
+
 // GET ALL POSTS
 
 export const getAll = () => async (dispatch) => {
@@ -56,9 +59,20 @@ export const getByUser = (key) => async (dispatch, getState) => {
     const actualPosts = [
       ...userPosts,
       userPostsList.data,
-
     ];
-    console.log(userPostsList)
+
+    const postsKey = actualPosts.length -1;
+    const actualUsers = [...users];
+    actualUsers[key] = {
+      ...users[key],
+      postsKey
+    }
+
+    dispatch({
+      type: GET_ALL_USERS,
+      payload: actualUsers,
+    });
+
     dispatch({
       type: GET_USER_POSTS,
       payload: actualPosts,
