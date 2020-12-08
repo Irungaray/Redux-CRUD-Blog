@@ -55,12 +55,8 @@ export const getByUser = (key) => async (dispatch, getState) => {
 
     const actualPosts = [
       ...userPosts,
-<<<<<<< HEAD
-      fetchUserPosts.data
-=======
       userPostsList.data,
 
->>>>>>> lpm
     ];
     console.log(userPostsList)
     dispatch({
