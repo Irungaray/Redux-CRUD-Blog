@@ -5,6 +5,7 @@ import { ERROR } from "../types/postsTypes";
 
 const INITIAL_STATE = {
   posts: [],
+  userPosts: [],
   loading: false,
   error: "",
 };
