@@ -56,8 +56,7 @@ export const getByUser = (key) => async (dispatch, getState) => {
 
     const actualPosts = [
       ...userPosts,
-      fetchUserPosts.data,
-
+      fetchUserPosts.data
     ];
 
     dispatch({
