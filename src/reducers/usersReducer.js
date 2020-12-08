@@ -11,7 +11,12 @@ const INITIAL_STATE = {
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GET_USERS:
-      return { ...state, users: action.payload, loading: false };
+      return {
+        ...state,
+        users: action.payload,
+        loading: false,
+        error: ''
+      };
 
     case LOADING:
       return { ...state, loading: true };
