@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import Loader from "../Loader";
+import NotFound from "../NotFound";
+
 import * as usersActions from "../../actions/usersActions";
 import * as postsActions from "../../actions/postsActions";
 
@@ -9,22 +12,102 @@ const { getByUser: getUserPosts } = postsActions;
 
 class Posts extends Component {
   async componentDidMount() {
+    const {
+      getAllUsers,
+      getUserPosts,
+      match: {
+        params: { key },
+      },
+    } = this.props;
+
     if (!this.props.usersReducer.users.length) {
-      await this.props.getAllUsers();
+      await getAllUsers();
     }
-    this.props.getUserPosts(this.props.match.params.key);
+
+    if (this.props.usersReducer.error) {
+      return;
+    }
+
+    if (!("postsKey" in this.props.usersReducer.users[key])) {
+      getUserPosts(key);
+    }
   }
+
+  printUser = () => {
+    const {
+      match: {
+        params: { key },
+      },
+      usersReducer
+    } = this.props;
+
+    if (!usersReducer.users.length || usersReducer.loading) {
+      return <Loader />;
+    }
+
+    if (usersReducer.error) {
+      return <NotFound msg={usersReducer.error} />;
+    }
+
+    const name = usersReducer.users[key].name;
+
+    return (
+      <div>
+        <h1>Publicaciones de:</h1>
+        <h2>{name}</h2>
+        <h1>Usuario Nº:</h1>
+        <h2>{this.props.match.params.key}</h2>
+      </div>
+    );
+  };
+
+  printPosts = () => {
+    const {
+      usersReducer,
+      usersReducer: { users },
+      postsReducer,
+      postsReducer: { posts },
+      match: { params: { key } }
+    } = this.props;
+
+    if (!users.length) return;
+    if (usersReducer.error) return;
+
+    if (postsReducer.loading) {
+      return <Loader />
+    }
+
+    if (postsReducer.error) {
+      return <NotFound msg={postsReducer.error} />
+    }
+
+    if (!posts.length) return;
+    if (!("postsKey" in users[key])) return;
+
+    const { postsKey } = users[key]
+
+    return posts[postsKey].map((post) => (
+      <div>
+        <h2>
+          { post.title }
+        </h2>
+
+        <h3>
+          { post.body }
+        </h3>
+      </div>
+    ));
+  };
 
   render() {
     console.log(this.props);
 
     return (
-        <div>
-            <h1>Publicaciones de</h1>
-            <h2>{ this.props.match.params.key }</h2>
-            <h2>a ver</h2>
-        </div>
-    )
+      <div>
+        { this.printUser() }
+        { this.printPosts() }
+      </div>
+    );
   }
 }
 

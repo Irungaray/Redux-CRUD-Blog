@@ -61,7 +61,7 @@ export const getByUser = (key) => async (dispatch, getState) => {
       userPostsList.data,
     ];
 
-    const postsKey = actualPosts.length -1;
+    const postsKey = actualPosts.length -- -1;
     const actualUsers = [...users];
     actualUsers[key] = {
       ...users[key],
@@ -78,7 +78,7 @@ export const getByUser = (key) => async (dispatch, getState) => {
       payload: actualPosts,
     });
   } catch (err) {
-    console.log("Error aca:", err.message);
+    console.log("Error in fetch:", err.message);
 
     dispatch({
       type: ERROR,
