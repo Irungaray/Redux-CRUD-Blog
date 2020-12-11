@@ -5,8 +5,8 @@ import { GET_USER_POSTS } from "../types/postsTypes";
 import { LOADING } from "../types/postsTypes";
 import { ERROR } from "../types/postsTypes";
 
-import * as usersTypes from '../types/usersTypes';
-const { GET_USERS: GET_ALL_USERS } = usersTypes
+import * as usersTypes from "../types/usersTypes";
+const { GET_USERS: GET_ALL_USERS } = usersTypes;
 
 // GET ALL POSTS
 
@@ -54,31 +54,26 @@ export const getByUser = (key) => async (dispatch, getState) => {
     userPostsList = await axios({
       url: `http://jsonplaceholder.typicode.com/posts?userId=${user_id}`,
       method: "GET",
-    })
+    });
 
-    const actualPosts = [
-      ...userPosts,
-      userPostsList.data
-    ];
+    const actualPosts = [...userPosts, userPostsList.data];
 
     dispatch({
       type: GET_USER_POSTS,
       payload: actualPosts,
     });
 
-
     const postsKey = actualPosts.length - 1;
     const actualUsers = [...users];
     actualUsers[key] = {
       ...users[key],
-      postsKey
-    }
+      postsKey,
+    };
 
     dispatch({
       type: GET_ALL_USERS,
       payload: actualUsers,
     });
-
   } catch (err) {
     console.log("Error in fetch:", err.message);
 
@@ -87,4 +82,4 @@ export const getByUser = (key) => async (dispatch, getState) => {
       payload: ("Error in fetch:", err.message),
     });
   }
-}
+};

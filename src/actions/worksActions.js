@@ -18,14 +18,15 @@ export const getWorks = () => async (dispatch) => {
     });
 
     const works = {};
-    worksList.data.map((work) => (
-      works[work.userId] = {
-        ...works[work.userId],
-        [work.id]: {
-          ...work
-        }
-      }
-    ))
+    worksList.data.map(
+      (work) =>
+        (works[work.userId] = {
+          ...works[work.userId],
+          [work.id]: {
+            ...work,
+          },
+        })
+    );
 
     dispatch({
       type: GET_WORKS,

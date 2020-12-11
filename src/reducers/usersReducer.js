@@ -15,7 +15,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         users: action.payload,
         loading: false,
-        error: ''
+        error: "",
       };
 
     case LOADING:

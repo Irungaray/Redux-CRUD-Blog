@@ -40,7 +40,7 @@ class Posts extends Component {
       match: {
         params: { key },
       },
-      usersReducer
+      usersReducer,
     } = this.props;
 
     if (!usersReducer.users.length || usersReducer.loading) {
@@ -69,37 +69,32 @@ class Posts extends Component {
       usersReducer: { users },
       postsReducer,
       postsReducer: { userPosts },
-      match: { params: { key } }
+      match: {
+        params: { key },
+      },
     } = this.props;
 
     if (!users.length) return;
     if (usersReducer.error) return;
 
     if (postsReducer.loading) {
-      return <Loader />
+      return <Loader />;
     }
 
     if (postsReducer.error) {
-      return <NotFound msg={postsReducer.error} />
+      return <NotFound msg={postsReducer.error} />;
     }
 
     if (!userPosts.length) return;
     if (!("postsKey" in users[key])) return;
 
-    const { postsKey } = users[key]
+    const { postsKey } = users[key];
 
     return userPosts[postsKey].map((post) => (
-      <div
-        className="post"
-        key={ post.id }
-      >
-        <h2>
-          { post.title }
-        </h2>
+      <div className="post" key={post.id}>
+        <h2>{post.title}</h2>
 
-        <h3>
-          { post.body }
-        </h3>
+        <h3>{post.body}</h3>
       </div>
     ));
   };
@@ -109,8 +104,8 @@ class Posts extends Component {
 
     return (
       <div>
-        { this.printUser() }
-        { this.printPosts() }
+        {this.printUser()}
+        {this.printPosts()}
       </div>
     );
   }

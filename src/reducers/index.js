@@ -7,5 +7,5 @@ import worksReducer from "./worksReducer";
 export default combineReducers({
   usersReducer,
   postsReducer,
-  worksReducer
+  worksReducer,
 });

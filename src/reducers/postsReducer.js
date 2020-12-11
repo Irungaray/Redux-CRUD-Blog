@@ -17,7 +17,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         posts: action.payload,
         loading: false,
-        error: ''
+        error: "",
       };
 
     case GET_USER_POSTS:
@@ -25,7 +25,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         userPosts: action.payload,
         loading: false,
-        error: ''
+        error: "",
       };
 
     case LOADING:
