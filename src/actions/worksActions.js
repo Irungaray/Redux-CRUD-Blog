@@ -64,10 +64,10 @@ export const add = (newWork) => async (dispatch) => {
   })
 
   try {
-    let savedWorks = await axios.post(
-      "https://jsonplaceholder.typicode.com/todos",
+    const savedWorks = await axios.post(
+      'https://jsonplaceholder.typicode.com/todos',
       newWork
-    );
+    )
 
     console.log(savedWorks.data);
 

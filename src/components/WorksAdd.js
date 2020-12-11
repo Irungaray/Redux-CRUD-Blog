@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 import * as worksActions from '../actions/worksActions';
 
@@ -9,6 +10,21 @@ import Loader from "./Loader";
 import NotFound from "./NotFound";
 
 class WorksAdd extends Component {
+  componentDidMount() {
+    const {
+      match: { params: { userId, workId } },
+      works,
+      changeUserId,
+      changeTitle
+    } = this.props;
+
+    if (userId && workId) {
+      const work = works[userId][workId];
+      changeUserId(work.userId);
+      changeTitle(work.title);
+    }
+  }
+
   changeUserId = (event) => {
     this.props.changeUserId(event.target.value);
   }
@@ -84,6 +100,9 @@ class WorksAdd extends Component {
         </button>
 
         { this.showAction() }
+        {
+          (this.props.goBack) ? <Redirect to="/works" /> : " "
+        }
       </div>
     );
   }

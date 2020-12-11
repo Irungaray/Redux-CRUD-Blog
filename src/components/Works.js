@@ -45,8 +45,22 @@ class Works extends Component {
 
     return Object.keys(forEachUser).map((workId) => (
       <div key={workId}>
-        <input type="checkbox" defaultChecked={forEachUser[workId].completed} />
+        <input
+          type="checkbox"
+          defaultChecked={
+            forEachUser[workId].completed
+          }
+        />
+
         {forEachUser[workId].title}
+
+        <button>
+          <Link to={`/works/add/${userId}/${workId}`}>
+            Edit
+          </Link>
+        </button>
+
+        <button>Delete</button>
       </div>
     ));
   };

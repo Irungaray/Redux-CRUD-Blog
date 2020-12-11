@@ -10,7 +10,8 @@ const INITIAL_STATE = {
   loading: false,
   error: "",
   userId: "",
-  title: ""
+  title: "",
+  goBack: false
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -21,6 +22,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         works: action.payload,
         loading: false,
         error: "",
+        goBack: false
       };
 
     case LOADING:
@@ -46,7 +48,10 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         works: {},
         loading: false,
-        error: ""
+        error: "",
+        goBack: true,
+        userId: "",
+        title: ""
       }
 
     default:
