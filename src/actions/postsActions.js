@@ -58,10 +58,16 @@ export const getByUser = (key) => async (dispatch, getState) => {
 
     const actualPosts = [
       ...userPosts,
-      userPostsList.data,
+      userPostsList.data
     ];
 
-    const postsKey = actualPosts.length -- -1;
+    dispatch({
+      type: GET_USER_POSTS,
+      payload: actualPosts,
+    });
+
+
+    const postsKey = actualPosts.length - 1;
     const actualUsers = [...users];
     actualUsers[key] = {
       ...users[key],
@@ -73,16 +79,12 @@ export const getByUser = (key) => async (dispatch, getState) => {
       payload: actualUsers,
     });
 
-    dispatch({
-      type: GET_USER_POSTS,
-      payload: actualPosts,
-    });
   } catch (err) {
     console.log("Error in fetch:", err.message);
 
     dispatch({
       type: ERROR,
-      payload: err.message,
+      payload: ("Error in fetch:", err.message),
     });
   }
 }

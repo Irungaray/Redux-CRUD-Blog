@@ -6,6 +6,7 @@ import Layout from "./Layout";
 import Users from "./Users";
 import Works from "./Works";
 import Posts from "./Posts";
+import WorksAdd from "./WorksAdd";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Layout>
           <Route exact path="/Users" component={Users} />
           <Route exact path="/Works" component={Works} />
+          <Route exact path="/Works/Add" component={WorksAdd} />
           <Route exact path="/Posts/:key" component={Posts} />
         </Layout>
       </Switch>

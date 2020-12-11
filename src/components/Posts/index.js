@@ -7,6 +7,8 @@ import NotFound from "../NotFound";
 import * as usersActions from "../../actions/usersActions";
 import * as postsActions from "../../actions/postsActions";
 
+import "./styles.css";
+
 const { getAll: getAllUsers } = usersActions;
 const { getByUser: getUserPosts } = postsActions;
 
@@ -66,7 +68,7 @@ class Posts extends Component {
       usersReducer,
       usersReducer: { users },
       postsReducer,
-      postsReducer: { posts },
+      postsReducer: { userPosts },
       match: { params: { key } }
     } = this.props;
 
@@ -81,13 +83,16 @@ class Posts extends Component {
       return <NotFound msg={postsReducer.error} />
     }
 
-    if (!posts.length) return;
+    if (!userPosts.length) return;
     if (!("postsKey" in users[key])) return;
 
     const { postsKey } = users[key]
 
-    return posts[postsKey].map((post) => (
-      <div>
+    return userPosts[postsKey].map((post) => (
+      <div
+        className="post"
+        key={ post.id }
+      >
         <h2>
           { post.title }
         </h2>
