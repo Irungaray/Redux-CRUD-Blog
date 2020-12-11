@@ -1,11 +1,16 @@
 import { GET_WORKS } from "../types/worksTypes";
 import { LOADING } from "../types/worksTypes";
 import { ERROR } from "../types/worksTypes";
+import { CHANGE_USER_ID } from "../types/worksTypes";
+import { CHANGE_TITLE } from "../types/worksTypes";
+import { ADDED } from "../types/worksTypes"
 
 const INITIAL_STATE = {
   works: {},
   loading: false,
   error: "",
+  userId: "",
+  title: ""
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -23,6 +28,26 @@ const reducer = (state = INITIAL_STATE, action) => {
 
     case ERROR:
       return { ...state, error: action.payload, loading: false };
+
+    case CHANGE_USER_ID:
+      return {
+        ...state,
+        userId: action.payload
+      }
+
+    case CHANGE_TITLE:
+      return {
+        ...state,
+        title: action.payload
+      }
+
+    case ADDED:
+      return {
+        ...state,
+        works: {},
+        loading: false,
+        error: ""
+      }
 
     default:
       return state;

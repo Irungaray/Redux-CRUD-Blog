@@ -12,7 +12,9 @@ import NotFound from "./NotFound";
 
 class Works extends Component {
   componentDidMount() {
-    this.props.getWorks();
+    if(!Object.keys(this.props.works).length) {
+      this.props.getWorks();
+    }
   }
 
   printContent = () => {
