@@ -3,9 +3,9 @@ import { LOADING } from "../types/worksTypes";
 import { ERROR } from "../types/worksTypes";
 import { CHANGE_USER_ID } from "../types/worksTypes";
 import { CHANGE_TITLE } from "../types/worksTypes";
-import { SAVED } from "../types/worksTypes"
-import { ACTUALIZE } from "../types/worksTypes"
-import { CLEAN } from "../types/worksTypes"
+import { SAVED } from "../types/worksTypes";
+import { ACTUALIZE } from "../types/worksTypes";
+import { CLEAN } from "../types/worksTypes";
 
 const INITIAL_STATE = {
   works: {},
@@ -13,7 +13,7 @@ const INITIAL_STATE = {
   error: "",
   userId: "",
   title: "",
-  goBack: false
+  goBack: false,
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -24,7 +24,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         works: action.payload,
         loading: false,
         error: "",
-        goBack: false
+        goBack: false,
       };
 
     case LOADING:
@@ -36,14 +36,14 @@ const reducer = (state = INITIAL_STATE, action) => {
     case CHANGE_USER_ID:
       return {
         ...state,
-        userId: action.payload
-      }
+        userId: action.payload,
+      };
 
     case CHANGE_TITLE:
       return {
         ...state,
-        title: action.payload
-      }
+        title: action.payload,
+      };
 
     case SAVED:
       return {
@@ -53,21 +53,21 @@ const reducer = (state = INITIAL_STATE, action) => {
         error: "",
         goBack: true,
         userId: "",
-        title: ""
-      }
+        title: "",
+      };
 
-      case ACTUALIZE:
-        return {
-          ...state,
-          works: action.payload
-        }
+    case ACTUALIZE:
+      return {
+        ...state,
+        works: action.payload,
+      };
 
-      case CLEAN:
-        return {
-          ...state,
-          userId: "",
-          title: ""
-        }
+    case CLEAN:
+      return {
+        ...state,
+        userId: "",
+        title: "",
+      };
 
     default:
       return state;

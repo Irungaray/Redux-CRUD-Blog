@@ -12,7 +12,7 @@ import NotFound from "./NotFound";
 
 class Works extends Component {
   componentDidMount() {
-    if(!Object.keys(this.props.works).length) {
+    if (!Object.keys(this.props.works).length) {
       this.props.getWorks();
     }
   }
@@ -20,7 +20,7 @@ class Works extends Component {
   componentDidUpdate() {
     const { works, loading, getWorks } = this.props;
 
-    if(!Object.keys(works).length && !loading) {
+    if (!Object.keys(works).length && !loading) {
       getWorks();
     }
   }
@@ -55,25 +55,17 @@ class Works extends Component {
       <div key={workId}>
         <input
           type="checkbox"
-          defaultChecked={
-            forEachUser[workId].completed
-          }
-          onChange={ () => changeCheck(userId, workId) }
+          defaultChecked={forEachUser[workId].completed}
+          onChange={() => changeCheck(userId, workId)}
         />
 
         {forEachUser[workId].title}
 
         <button>
-          <Link to={`/works/add/${userId}/${workId}`}>
-            Edit
-          </Link>
+          <Link to={`/works/add/${userId}/${workId}`}>Edit</Link>
         </button>
 
-        <button
-          onClick={ () => deleteWork(workId) }
-        >
-          Delete
-        </button>
+        <button onClick={() => deleteWork(workId)}>Delete</button>
       </div>
     ));
   };

@@ -49,119 +49,119 @@ export const getWorks = () => async (dispatch) => {
 export const changeUserId = (userId) => (dispatch) => {
   dispatch({
     type: CHANGE_USER_ID,
-    payload: userId
-  })
-}
+    payload: userId,
+  });
+};
 
 export const changeTitle = (title) => (dispatch) => {
   dispatch({
     type: CHANGE_TITLE,
-    payload: title
-  })
-}
+    payload: title,
+  });
+};
 
 export const add = (newWork) => async (dispatch) => {
   dispatch({
     type: LOADING,
-  })
+  });
 
   try {
     const savedWorks = await axios.post(
-      'https://jsonplaceholder.typicode.com/todos',
+      "https://jsonplaceholder.typicode.com/todos",
       newWork
-    )
+    );
 
     console.log(savedWorks.data);
     console.log("When searching for a job, edit this log");
 
     dispatch({
-      type: SAVED
-    })
-  } catch(err) {
+      type: SAVED,
+    });
+  } catch (err) {
     console.log(err.message);
 
     dispatch({
       type: ERROR,
-      payload: "Error de la gran reputa"
-    })
+      payload: "Error de la gran reputa",
+    });
   }
-}
+};
 
 export const edit = (editedWork) => async (dispatch) => {
   dispatch({
     type: LOADING,
-  })
+  });
 
   try {
     await axios.put(
       `https://jsonplaceholder.typicode.com/todos/${editedWork.id}`,
       editedWork
-    )
+    );
 
-      console.log(editedWork)
+    console.log(editedWork);
     console.log("When searching for a job, edit this log");
 
     dispatch({
-      type: SAVED
-    })
-  } catch(err) {
+      type: SAVED,
+    });
+  } catch (err) {
     console.log(err.message);
 
     dispatch({
       type: ERROR,
-      payload: "Error de la gran reputa"
-    })
+      payload: "Error de la gran reputa",
+    });
   }
-}
+};
 
 export const changeCheck = (userId, workId) => (dispatch, getState) => {
   const { works } = getState().worksReducer;
   const selected = works[userId][workId];
   const actualized = {
-    ...works
+    ...works,
   };
   actualized[userId] = {
-    ...works[userId]
+    ...works[userId],
   };
   actualized[userId][workId] = {
     ...works[userId][workId],
-    completed: !selected.completed
+    completed: !selected.completed,
   };
 
   dispatch({
     type: ACTUALIZE,
-    payload: actualized
-  })
+    payload: actualized,
+  });
 };
 
 export const deleteWork = (workId) => async (dispatch) => {
   dispatch({
-    type: LOADING
+    type: LOADING,
   });
 
   try {
     const workToDelete = await axios.delete(
       `https://jsonplaceholder.typicode.com/todos/${workId}`
-    )
+    );
 
     console.log(workToDelete);
 
     dispatch({
       type: GET_WORKS,
-      payload: {}
-    })
-  } catch(err) {
+      payload: {},
+    });
+  } catch (err) {
     console.log(err.message);
 
     dispatch({
       type: ERROR,
-      payload: "Error de la gran reputa"
-    })
+      payload: "Error de la gran reputa",
+    });
   }
-}
+};
 
 export const cleanForm = () => (dispatch) => {
   dispatch({
-    type: CLEAN
-  })
-}
+    type: CLEAN,
+  });
+};
