@@ -17,6 +17,14 @@ class Works extends Component {
     }
   }
 
+  componentDidUpdate() {
+    const { works, loading, getWorks } = this.props;
+
+    if(!Object.keys(works).length && !loading) {
+      getWorks();
+    }
+  }
+
   printContent = () => {
     const { works, loading, error } = this.props;
 
@@ -38,7 +46,7 @@ class Works extends Component {
   };
 
   printWorks = (userId) => {
-    const { works } = this.props;
+    const { works, changeCheck, deleteWork } = this.props;
     const forEachUser = {
       ...works[userId],
     };
@@ -50,6 +58,7 @@ class Works extends Component {
           defaultChecked={
             forEachUser[workId].completed
           }
+          onChange={ () => changeCheck(userId, workId) }
         />
 
         {forEachUser[workId].title}
@@ -60,13 +69,17 @@ class Works extends Component {
           </Link>
         </button>
 
-        <button>Delete</button>
+        <button
+          onClick={ () => deleteWork(workId) }
+        >
+          Delete
+        </button>
       </div>
     ));
   };
 
   render() {
-    console.log(this.props);
+    console.log(this.props.works);
 
     return (
       <div>

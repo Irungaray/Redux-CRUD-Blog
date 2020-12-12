@@ -15,13 +15,16 @@ class WorksAdd extends Component {
       match: { params: { userId, workId } },
       works,
       changeUserId,
-      changeTitle
+      changeTitle,
+      cleanForm
     } = this.props;
 
     if (userId && workId) {
       const work = works[userId][workId];
       changeUserId(work.userId);
       changeTitle(work.title);
+    } else {
+      cleanForm();
     }
   }
 
@@ -34,14 +37,32 @@ class WorksAdd extends Component {
   }
 
   save = () => {
-    const { userId, title, add } = this.props;
+    const {
+      match: { params: { userId, workId } },
+      works,
+      title,
+      add,
+      edit
+    } = this.props;
+
     const newWork = {
       userId: userId,
       title: title,
       completed: false
     }
 
-    add(newWork);
+    if (userId && workId) {
+      const work = works[userId][workId];
+      const editedWork = {
+        ...newWork,
+        completed: work.completed,
+        id: work.id
+      }
+
+      edit(editedWork);
+    } else {
+      add(newWork);
+    }
   }
 
   disableButton = () => {

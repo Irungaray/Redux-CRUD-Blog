@@ -3,7 +3,8 @@ import { LOADING } from "../types/worksTypes";
 import { ERROR } from "../types/worksTypes";
 import { CHANGE_USER_ID } from "../types/worksTypes";
 import { CHANGE_TITLE } from "../types/worksTypes";
-import { ADDED } from "../types/worksTypes"
+import { SAVED } from "../types/worksTypes"
+import { ACTUALIZE } from "../types/worksTypes"
 
 const INITIAL_STATE = {
   works: {},
@@ -43,7 +44,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         title: action.payload
       }
 
-    case ADDED:
+    case SAVED:
       return {
         ...state,
         works: {},
@@ -53,6 +54,12 @@ const reducer = (state = INITIAL_STATE, action) => {
         userId: "",
         title: ""
       }
+
+      case ACTUALIZE:
+        return {
+          ...state,
+          works: action.payload
+        }
 
     default:
       return state;
