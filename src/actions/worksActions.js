@@ -7,6 +7,7 @@ import { CHANGE_USER_ID } from "../types/worksTypes";
 import { CHANGE_TITLE } from "../types/worksTypes";
 import { SAVED } from "../types/worksTypes";
 import { ACTUALIZE } from "../types/worksTypes";
+import { CLEAN } from "../types/worksTypes";
 
 export const getWorks = () => async (dispatch) => {
   let worksList;
@@ -157,4 +158,10 @@ export const deleteWork = (workId) => async (dispatch) => {
       payload: "Error de la gran reputa"
     })
   }
+}
+
+export const cleanForm = () => (dispatch) => {
+  dispatch({
+    type: CLEAN
+  })
 }

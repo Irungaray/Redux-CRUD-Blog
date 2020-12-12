@@ -5,6 +5,7 @@ import { CHANGE_USER_ID } from "../types/worksTypes";
 import { CHANGE_TITLE } from "../types/worksTypes";
 import { SAVED } from "../types/worksTypes"
 import { ACTUALIZE } from "../types/worksTypes"
+import { CLEAN } from "../types/worksTypes"
 
 const INITIAL_STATE = {
   works: {},
@@ -59,6 +60,13 @@ const reducer = (state = INITIAL_STATE, action) => {
         return {
           ...state,
           works: action.payload
+        }
+
+      case CLEAN:
+        return {
+          ...state,
+          userId: "",
+          title: ""
         }
 
     default:
