@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Redux-CRUD-Blog/static/css/main.94911b50.chunk.css",
+    "main.js": "/Redux-CRUD-Blog/static/js/main.be5e2b67.chunk.js",
+    "main.js.map": "/Redux-CRUD-Blog/static/js/main.be5e2b67.chunk.js.map",
+    "runtime-main.js": "/Redux-CRUD-Blog/static/js/runtime-main.5d26c852.js",
+    "runtime-main.js.map": "/Redux-CRUD-Blog/static/js/runtime-main.5d26c852.js.map",
+    "static/js/2.96b62c14.chunk.js": "/Redux-CRUD-Blog/static/js/2.96b62c14.chunk.js",
+    "static/js/2.96b62c14.chunk.js.map": "/Redux-CRUD-Blog/static/js/2.96b62c14.chunk.js.map",
+    "index.html": "/Redux-CRUD-Blog/index.html",
+    "static/css/main.94911b50.chunk.css.map": "/Redux-CRUD-Blog/static/css/main.94911b50.chunk.css.map",
+    "static/js/2.96b62c14.chunk.js.LICENSE.txt": "/Redux-CRUD-Blog/static/js/2.96b62c14.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5d26c852.js",
+    "static/js/2.96b62c14.chunk.js",
+    "static/css/main.94911b50.chunk.css",
+    "static/js/main.be5e2b67.chunk.js"
+  ]
+}
