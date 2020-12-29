@@ -6,6 +6,8 @@ Fetching the JSON-Placeholder API and rendering its data into two principal sect
 
 **Works** shows dummy tasks assigned to the users, which you can virtually edit or delete.
 
+Made with React Redux.
+
 Hope you Enjoy!
 
 ## Available Scripts
