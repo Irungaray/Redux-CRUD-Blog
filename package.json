@@ -22,7 +22,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "pretty": "prettier --write \"./**/*.{js,jsx,json,css}\""
+    "pretty": "prettier --write \"./**/*.{js,jsx,json,css}\"",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
