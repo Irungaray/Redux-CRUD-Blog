@@ -1,6 +1,6 @@
 # The JSON-Placeholder CRUD Blog
 
-Fetching JSON-Placeholder and rendering its data into two principal sections: Users and Works.
+Fetching the JSON-Placeholder API and rendering its data into two principal sections: Users and Works.
 
 **Users** shows dummy users, and each user's dummy posts.
 **Works** shows dummy tasks assigned to the users, which you can virtually edit or delete.
